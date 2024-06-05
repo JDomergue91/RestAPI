@@ -6,6 +6,8 @@ import compression from 'compression';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import router from './router';
+
 //console.log("Hello Typesscript!");
 
 const app = express();
@@ -29,3 +31,4 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
 
+app.use('/', router());
